@@ -11,14 +11,14 @@ const TopicSelector = () => {
     });
   }, []);
 
-  //in return map through topics and put a link to each one /articles/?topic=${topicName}
   return (
     <main className="nav">
       <h2> Topics </h2>
-      <div>
+      <div id="topics" className="topics">
+          <Link className = "topicNavLink" key="allTopics" to='/articles'>all topics</Link>
       {topics.map((topic) => {
         return (
-          <Link key={topic.slug} to={`/articles/?topic=${topic.slug}`}>
+          <Link className = "topicNavLink" key={topic.slug} to={`/articles/${topic.slug}`}>
             {topic.slug}
           </Link>
         );

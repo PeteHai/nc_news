@@ -20,6 +20,20 @@ export const getArticles = (topic) => {
   });
 };
 
+export const getArticlesByTopic = (topic) => {
+  let path = "/articles";
+  if (topic) {
+    path += `/?topic=${topic}`;
+  }
+  return ncNewsApi.get(path).then((response) => {
+    return response.data.articles;
+  });
+};
+
+
+
+
+
 // export const getSingleArticle =(article_id)=>{
 //     return ncNewsApi.get(`/articles/${article_id}`).then((res)=>{
 //         console.log(res.data)
