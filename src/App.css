@@ -1,8 +1,9 @@
 .App {
   text-align: center;
-  min-height: 100vh;
+  justify-content: center;
+  min-height: 95vh;
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns:100%;
   grid-template-rows: min-content min-content auto;
   grid-template-areas:
     "header"
@@ -13,14 +14,31 @@
 .header {
   border: solid red 1px;
   grid-area: header;
+  justify-content: center;
+
 }
 
 .nav {
   border: solid blue 1px;
   grid-area: nav;
+  justify-content: center;
+
 }
 
 .articleList {
   border: solid green 1px;
   grid-area: main;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.singleArticle{
+  border: solid black 1px;
+  grid-area: main;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

@@ -11,14 +11,11 @@ export const getTopics = () => {
 };
 
 export const getArticles = (topic) => {
-  let path = "/articles";
-  if (topic) {
-    path += `/?topic=${topic}`;
-  }
-
-  return ncNewsApi.get(path).then((res) => {
-    return res.data.articles;
-  });
+  return ncNewsApi.get('/articles').then((response)=>{
+    console.log("in getArticles")
+    console.log(response.data.articles)
+    return response.data.articles
+  })
 };
 
 // export const getSingleArticle =(article_id)=>{

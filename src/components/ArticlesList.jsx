@@ -5,15 +5,33 @@ import { getArticles } from "./utils/api";
 const ArticlesList = () => {
   const [newsArticles, setNewsArticles] = useState([]);
 
+  
   useEffect(() => {
     getArticles().then((articles) => {
       setNewsArticles(articles);
-    });
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
   }, []);
 
   return (
     <main className="articleList">
-      <h2> Articles List here </h2>
+      <h2> Articles </h2>
+      <div>
+        {newsArticles.map((article)=>{
+          return(
+            <li className ="singleArticle" key={article.article_id}>
+              <h3>title: {article.title}</h3>
+              <p>topic: {article.topic} </p>
+              <p>author: {article.author} </p>
+              <p>created_at: {article.created_at} </p>
+              <p>votes: {article.votes} </p>
+              <p>comments: {article.comment_count} </p>
+            </li>
+          )
+        })}
+      </div>
     </main>
   );
 };
