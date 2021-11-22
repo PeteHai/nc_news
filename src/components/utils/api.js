@@ -6,16 +6,18 @@ const ncNewsApi = axios.create({
 
 export const getTopics = () => {
   return ncNewsApi.get("/topics").then((res) => {
-    return res.data.genres;
+    return res.data.topics;
   });
 };
 
 export const getArticles = (topic) => {
-  return ncNewsApi.get('/articles').then((response)=>{
-    console.log("in getArticles")
-    console.log(response.data.articles)
-    return response.data.articles
-  })
+  let path = "/articles";
+  if (topic) {
+    path += `/?topic=${topic}`;
+  }
+  return ncNewsApi.get(path).then((response) => {
+    return response.data.articles;
+  });
 };
 
 // export const getSingleArticle =(article_id)=>{

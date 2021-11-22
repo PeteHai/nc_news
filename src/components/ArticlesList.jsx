@@ -20,7 +20,7 @@ const ArticlesList = () => {
       <h2> Articles </h2>
       <div>
         {newsArticles.map((article)=>{
-          return(
+          return( //return item cards here???
             <li className ="singleArticle" key={article.article_id}>
               <h3>title: {article.title}</h3>
               <p>topic: {article.topic} </p>
