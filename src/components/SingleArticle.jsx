@@ -12,6 +12,11 @@ const SingleArticle = () => {
     });
   }, []);
 
+  const handleVote =()=>{
+    // patch request
+    //do in a new function?
+  }
+
   return (
     <div id="articleInFull" className="articleInFull">
       <h3 id="articleHeader" className="articleHeader">
@@ -25,15 +30,15 @@ const SingleArticle = () => {
         <p>author: {articleState.author}</p>
         <p>posted at: {articleState.created_at}</p>
       </ul>
-      
+
       <ul className="articleVotingBox">
         <p>votes: {articleState.votes}</p>
-        <button>vote</button>
+        <button onClick={handleVote()}>vote</button>
       </ul>
 
       <ul className="articleCommentsBox">
         <p>comments: {articleState.comment_count}</p>
-        <button>see all comments</button>
+        <button >see all comments</button>
       </ul>
     </div>
   );
