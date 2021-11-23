@@ -12,7 +12,13 @@ const SingleArticle = () => {
     });
   }, []);
 
-  return <p>placeholder</p>;
+  return (
+    <div>
+      <h3>{articleState.title}</h3>
+      <p>{articleState.body}</p>
+      <p>author: {articleState.author}</p>
+    </div>
+  );
 };
 
 export default SingleArticle;

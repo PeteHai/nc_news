@@ -36,7 +36,7 @@ export const getArticlesByTopic = (topic) => {
 
 export const getSingleArticle =(article_id)=>{
     return ncNewsApi.get(`/articles/${article_id}`).then((res)=>{
-        return res.data.article_id;
+        return res.data.article;
     })
 }
 
