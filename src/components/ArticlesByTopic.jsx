@@ -23,7 +23,6 @@ const ArticlesByTopic = () => {
       <div>
         {articlesByTopic.map((article) => {
           return (
-            //return item cards here???
 
             <Link
               className="linkToArticle"

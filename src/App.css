@@ -59,5 +59,33 @@
   max-height: 15%;
   min-width: 360px;
   display: grid;
+}
+
+.articleInFull {
+  border: solid black 5px;
+}
+
+.articleHeader {
+  border: dashed black 1px;
+  background-color: rgb(39, 108, 236);
   
+}
+
+.articleBody {
+  border: dashed black 1px;
+  background-color: rgb(112, 161, 250);
+  
+}
+.articleAuthorBox {
+  border: dashed black 1px;
+  background-color: rgb(147, 181, 246);
+ 
+}
+.articleVotingBox {
+  border: dashed black 1px;
+  background-color: rgb(196, 214, 246);
+}
+.articleCommentsBox {
+  border: dashed black 1px;
+  background-color: rgb(153, 161, 175);
 }
