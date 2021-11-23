@@ -19,36 +19,45 @@
 }
 
 .nav {
-  border: solid blue 1px;
+  border: solid rgb(26, 53, 204) 1px;
   grid-area: nav;
   justify-content: center;
+  background-color: rgb(231, 177, 231);
 }
 
-.articleList {
+/* .articleList {
   border: solid green 1px;
   grid-area: main;
-  overflow: scroll;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   overflow: scroll;
-}
+  background-color: rgb(204, 204, 157);
+} */
 
 .ArticlesByTopic {
-  border: solid yellow 1px;
+  border: solid rgb(255, 255, 3) 1px;
   grid-area: main;
   overflow: scroll;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   overflow: scroll;
+  background-color: rgb(218, 139, 218);
 }
 
-.singleArticle {
+.singleArticleOnHome {
   border: solid black 1px;
+  background-color: chocolate;
   grid-area: main;
-  overflow: scroll;
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  max-width: 100%;
+  max-height: 15%;
+  min-width: 360px;
+  display: grid;
+  
 }
