@@ -19,6 +19,7 @@ const Comments = ({ commentButtonStatus, article_id }) => {
       <div className="revealComments">
         {commentsState.map((comment) => {
           return (
+            // push to button status
             <div className="commentCard">
               <p>comment_id: {comment.comment_id}</p>
               <p>author: {comment.author}</p>
@@ -26,6 +27,7 @@ const Comments = ({ commentButtonStatus, article_id }) => {
               <p>comment created at: {comment.created_at}</p>
 
               <p>votes: {comment.votes + votesInc}</p>
+              {/* button functionality below */}
               <button
                 onClick={() => {
                   if (buttonStatus === "add vote") {
