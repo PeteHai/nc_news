@@ -40,10 +40,3 @@ export const getArticleComments =(article_id)=>{
         return res.data.comments
     })
 }
-
-export const patchCommentsVote =(article_id,value)=>{
-  return ncNewsApi.patch(`/articles/${article_id}/comments`,{inc_votes: value})
-  .then((res)=>{
-    return res.data
-  })
-}

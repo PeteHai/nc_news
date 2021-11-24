@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-// import {useComments} from "../hooks/useComments.js";
 import { getSingleArticle, patchArticleVote } from "./utils/api.js";
 import Comments from "./Comments.jsx";
 
@@ -18,7 +17,7 @@ const SingleArticle = () => {
     getSingleArticle(article_id).then((articleFromApi) => {
       setArticleState(articleFromApi);
     });
-  }, []);
+  }, [article_id]); //should article_id be in here?
 
   return (
     <div id="articleInFull" className="articleInFull">
