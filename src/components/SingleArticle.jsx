@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+// import {useComments} from "../hooks/useComments.js";
 import { getSingleArticle, patchArticleVote } from "./utils/api.js";
+import Comments from "./Comments.jsx"
 
 const SingleArticle = () => {
   const [articleState, setArticleState] = useState([]);
   const [votesInc, setVotesInc] = useState(0);
   const [buttonStatus, setButtonStatus] = useState("add vote");
+  const [commentButtonStatus, setCommentButtonStatus] = useState(
+    "click to see all comments"
+  );
 
   const { article_id } = useParams();
 
@@ -50,8 +55,19 @@ const SingleArticle = () => {
 
       <ul className="articleCommentsBox">
         <p>comments: {articleState.comment_count}</p>
-        <button>see all comments</button>
+        <button
+          onClick={() => {
+            if (commentButtonStatus === "click to see all comments") {
+              setCommentButtonStatus("click to hide comments");
+            } else if (commentButtonStatus === "click to hide comments") {
+              setCommentButtonStatus("click to see all comments");
+            }
+          }}
+        >
+          {commentButtonStatus}
+        </button>
       </ul>
+      <Comments commentButtonStatus={commentButtonStatus} />
     </div>
   );
 };
