@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 // import {useComments} from "../hooks/useComments.js";
 import { getSingleArticle, patchArticleVote } from "./utils/api.js";
-import Comments from "./Comments.jsx"
+import Comments from "./Comments.jsx";
 
 const SingleArticle = () => {
   const [articleState, setArticleState] = useState([]);
@@ -67,7 +67,10 @@ const SingleArticle = () => {
           {commentButtonStatus}
         </button>
       </ul>
-      <Comments commentButtonStatus={commentButtonStatus} />
+      <Comments
+        commentButtonStatus={commentButtonStatus}
+        article_id={article_id}
+      />
     </div>
   );
 };

@@ -88,7 +88,8 @@
     "body body body body"
     "authorBox authorBox authorBox authorBox"
     " votes votes votes votes"
-    "commentBox commentBox commentBox commentBox";
+    "commentBox commentBox commentBox commentBox"
+    "revealedComments revealedComments revealedComments revealedComments";
 }
 
 .articleHeader {
@@ -111,15 +112,14 @@
   max-width: 85vw;
   grid-area: authorBox;
   overflow-wrap: break-word;
-  max-height:10vh;
-
+  max-height: 10vh;
 }
 .articleVotingBox {
   border: dashed black 1px;
   background-color: rgb(196, 214, 246);
   max-width: 85vw;
   grid-area: votes;
-  max-height:10vh;
+  max-height: 10vh;
 }
 .articleCommentsBox {
   border: dashed black 1px;
@@ -127,4 +127,12 @@
   max-width: 85vw;
   grid-area: commentBox;
   max-height: 10vh;
+}
+
+.revealComments {
+  border: solid 1px;
+  grid-area: revealedComments;
+}
+.commentCard {
+  border: dashed 1px;
 }
