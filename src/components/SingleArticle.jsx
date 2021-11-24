@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getSingleArticle, patchArticleVote } from "./utils/api.js";
 import Comments from "./Comments.jsx";
+import PostComment from "./PostComment.jsx";
 
 const SingleArticle = () => {
   const [articleState, setArticleState] = useState([]);
@@ -9,6 +10,9 @@ const SingleArticle = () => {
   const [buttonStatus, setButtonStatus] = useState("add vote");
   const [commentButtonStatus, setCommentButtonStatus] = useState(
     "click to see all comments"
+  );
+  const [postButtonStatus, setPostButtonStatus] = useState(
+    "click here to post a comment..."
   );
 
   const { article_id } = useParams();
@@ -70,6 +74,28 @@ const SingleArticle = () => {
         commentButtonStatus={commentButtonStatus}
         article_id={article_id}
       />
+      <div>
+        <button
+          onClick={() => {
+            if (postButtonStatus === "click here to post a comment...") {
+              setPostButtonStatus("click to cancel posting your comment");
+            } else if (
+              postButtonStatus === "click to cancel posting your comment"
+            ) {
+              setPostButtonStatus("click here to post a comment...");
+            }
+          }}
+        >
+          {postButtonStatus}
+        </button>
+
+        <PostComment
+          //pass down post comment props
+
+          commentButtonStatus={commentButtonStatus}
+          article_id={article_id}
+        />
+      </div>
     </div>
   );
 };

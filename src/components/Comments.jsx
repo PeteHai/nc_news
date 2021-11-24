@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import CommentVoter from "./CommentVoter.jsx";
-import { getArticleComments} from "./utils/api.js";
+import { getArticleComments } from "./utils/api.js";
 
 const Comments = ({ commentButtonStatus, article_id }) => {
   const [commentsState, setCommentsState] = useState([]);
-
 
   useEffect(() => {
     getArticleComments(article_id).then((commentsFromApi) => {
@@ -25,9 +24,7 @@ const Comments = ({ commentButtonStatus, article_id }) => {
               <p>author: {comment.author}</p>
               <p>{comment.body}</p>
               <p>comment created at: {comment.created_at}</p>
-              <CommentVoter
-                votes={comment.votes}
-              />
+              <CommentVoter votes={comment.votes} />
             </div>
           );
         })}
