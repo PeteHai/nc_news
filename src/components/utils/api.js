@@ -10,7 +10,6 @@ export const getTopics = () => {
   });
 };
 
-
 export const getArticlesByTopic = (topic) => {
   let path = "/articles";
   if (topic) {
@@ -21,22 +20,30 @@ export const getArticlesByTopic = (topic) => {
   });
 };
 
-export const getSingleArticle =(article_id)=>{
-    return ncNewsApi.get(`/articles/${article_id}`).then((res)=>{
-        return res.data.article;
-    })
-}
+export const getSingleArticle = (article_id) => {
+  return ncNewsApi.get(`/articles/${article_id}`).then((res) => {
+    return res.data.article;
+  });
+};
 
-export const patchArticleVote =(article_id, value)=>{
-  return ncNewsApi.patch(`/articles/${article_id}`,{inc_votes: value})
-  .then((res)=>{
-    return res.data
-  })
-  }
+export const patchArticleVote = (article_id, value) => {
+  return ncNewsApi
+    .patch(`/articles/${article_id}`, { inc_votes: value })
+    .then((res) => {
+      return res.data;
+    });
+};
 
+export const getArticleComments = (article_id) => {
+  return ncNewsApi.get(`/articles/${article_id}/comments`).then((res) => {
+    return res.data.comments;
+  });
+};
 
-export const getArticleComments =(article_id)=>{
-    return ncNewsApi.get(`/articles/${article_id}/comments`).then((res)=>{
-        return res.data.comments
-    })
-}
+export const postCommentOnArticle = (article_id, commentToPost) => {
+  return ncNewsApi
+    .post(`/articles/${article_id}/comments`, commentToPost)
+    .then((response) => {
+      return response.data.comments;
+    });
+};

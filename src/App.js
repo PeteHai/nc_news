@@ -10,12 +10,7 @@ import { UserContext } from "./context/UserContext.js";
 
 function App() {
   //hard coded in as jessjelly
-  const [currentUser, setCurrentUser] = useState({
-    username: "jessjelly",
-    name: "Jess Jelly",
-    avatar_url:
-      "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
-  });
+  const [currentUser, setCurrentUser] = useState("");
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>

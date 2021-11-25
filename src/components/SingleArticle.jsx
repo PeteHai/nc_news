@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getSingleArticle, patchArticleVote } from "./utils/api.js";
 import Comments from "./Comments.jsx";
@@ -21,7 +21,7 @@ const SingleArticle = () => {
     getSingleArticle(article_id).then((articleFromApi) => {
       setArticleState(articleFromApi);
     });
-  }, [article_id]); //should article_id be in here?
+  }); //should article_id be in here?
 
   return (
     <div id="articleInFull" className="articleInFull">
@@ -74,7 +74,7 @@ const SingleArticle = () => {
         commentButtonStatus={commentButtonStatus}
         article_id={article_id}
       />
-      <div>
+      <div className="postCommentsContainer">
         <button
           onClick={() => {
             if (postButtonStatus === "click here to post a comment...") {
@@ -88,11 +88,10 @@ const SingleArticle = () => {
         >
           {postButtonStatus}
         </button>
-
         <PostComment
           //pass down post comment props
 
-          commentButtonStatus={commentButtonStatus}
+          postButtonStatus={postButtonStatus}
           article_id={article_id}
         />
       </div>
@@ -101,5 +100,3 @@ const SingleArticle = () => {
 };
 
 export default SingleArticle;
-
-//add detail to topic, button to show comments and add form etc

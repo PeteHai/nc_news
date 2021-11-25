@@ -6,27 +6,35 @@ export default function User() {
   //context
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
+  //default user object
+  const defaultUserObject = {
+    username: "jessjelly",
+    name: "Jess Jelly",
+    avatar_url:
+      "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
+  };
+
   //state
   const [defaultUser, setDefaultUser] = useState(undefined);
-  console.log(currentUser);
 
   //the return
   if (defaultUser === undefined) {
     return (
-      <div>
+      <div className="loginContainer">
         <button
           className="userLogin"
           onClick={() => {
-            setDefaultUser([currentUser]);
+            setCurrentUser(defaultUserObject);
+            setDefaultUser([defaultUserObject]);
           }}
         >
-          Log in as username: {currentUser.username}
+          Log in as username: {defaultUserObject.username}
         </button>
       </div>
     );
   } else {
     return (
-      <div>
+      <div className="logoutContainer">
         <p className="userWelcome">Hello {defaultUser[0].name}</p>
         <p className="UserUsername">username: {defaultUser[0].username}</p>
         <img
@@ -38,6 +46,7 @@ export default function User() {
           className="userLogout"
           onClick={() => {
             setDefaultUser(undefined);
+            setCurrentUser("");
           }}
         >
           Sign Out from username: {defaultUser[0].username}{" "}
