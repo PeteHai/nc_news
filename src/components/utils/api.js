@@ -10,14 +10,18 @@ export const getTopics = () => {
   });
 };
 
-export const getArticlesByTopic = (topic) => {
+export const getArticlesByTopic = (sort_by, order_by, topic) => {
   let path = "/articles";
   if (topic) {
     path += `/?topic=${topic}`;
   }
-  return ncNewsApi.get(path).then((response) => {
-    return response.data.articles;
-  });
+  return ncNewsApi
+    .get(path, {
+      params: { sort_by: sort_by, order: order_by },
+    })
+    .then((response) => {
+      return response.data.articles;
+    });
 };
 
 export const getSingleArticle = (article_id) => {
@@ -48,12 +52,8 @@ export const postCommentOnArticle = (article_id, commentToPost) => {
     });
 };
 
-
-export const deleteCommentFromArticle =(comment_id)=>{
-  return ncNewsApi
-  .delete(`comments/${comment_id}`)
-  .then((res)=>{
-    return res
-  })
-
-}
+export const deleteCommentFromArticle = (comment_id) => {
+  return ncNewsApi.delete(`comments/${comment_id}`).then((res) => {
+    return res;
+  });
+};
