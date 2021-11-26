@@ -43,7 +43,10 @@ const ArticlesByTopic = () => {
 
   return (
     <main className="articlesByTopic">
-      <h2> articles{isThereATopic(topic)} </h2>
+      <h2 className="articlesByTopicHeader">
+        {" "}
+        articles{isThereATopic(topic)}{" "}
+      </h2>
       <div className="sortBy">
         sortBy bar
         <form className="articleSortingForm">

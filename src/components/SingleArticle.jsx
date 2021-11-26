@@ -34,6 +34,13 @@ const SingleArticle = () => {
 
       <ul id="articleAuthorBox" className="articleAuthorBox">
         <p>author: {articleState.author}</p>
+        <div>
+          <img
+            className="avatar"
+            src={`https://www.stampsdirect.co.uk/media/product/4ce/smiley-face-rubber-stamp-9dc.png`}
+            alt="avatar"
+          ></img>
+        </div>
         <p>posted at: {articleState.created_at}</p>
       </ul>
 

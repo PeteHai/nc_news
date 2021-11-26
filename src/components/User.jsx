@@ -35,22 +35,24 @@ export default function User() {
   } else {
     return (
       <div className="logoutContainer">
-        <p className="userWelcome">Hello {defaultUser[0].name}</p>
-        <p className="UserUsername">username: {defaultUser[0].username}</p>
+        <div className="userWelcome">Hello {defaultUser[0].name}</div>
+        <div className="UserUsername">username: {defaultUser[0].username}</div>
         <img
           className="avatar"
           src={`${defaultUser[0].avatar_url}`}
           alt="avatar"
         ></img>
-        <button
-          className="userLogout"
-          onClick={() => {
-            setDefaultUser(undefined);
-            setCurrentUser("");
-          }}
-        >
-          Sign Out from username: {defaultUser[0].username}{" "}
-        </button>
+        <div className="userLogout">
+          <button
+            className="userLogoutButton"
+            onClick={() => {
+              setDefaultUser(undefined);
+              setCurrentUser("");
+            }}
+          >
+            Sign Out from username: {defaultUser[0].username}{" "}
+          </button>
+        </div>
       </div>
     );
   }
