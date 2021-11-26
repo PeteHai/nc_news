@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 //dev note - backend does not have a patch to the comments API yet, therefore these vote changes will disappear on refresh
 
 const CommentVoter = ({ votes }) => {
-  console.log(votes);
   const [voteButtonStatus, setVoteButtonStatus] = useState("add vote");
   const [votesInc, setVotesInc] = useState(votes);
 

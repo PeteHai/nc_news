@@ -21,7 +21,7 @@ const SingleArticle = () => {
     getSingleArticle(article_id).then((articleFromApi) => {
       setArticleState(articleFromApi);
     });
-  }); //should article_id be in here?
+  }, [articleState]); //should article_id be in here?
 
   return (
     <div id="articleInFull" className="articleInFull">
@@ -42,12 +42,13 @@ const SingleArticle = () => {
         <button
           onClick={() => {
             if (buttonStatus === "add vote") {
+              //issue with conditional rendering - adding two votes if I have votesInc +1
               patchArticleVote(article_id, 1);
-              setVotesInc(votesInc + 1);
+              setVotesInc(votesInc);
               setButtonStatus("undo vote");
             } else if (buttonStatus === "undo vote") {
+              setVotesInc(votesInc);
               patchArticleVote(article_id, -1);
-              setVotesInc(votesInc - 1);
               setButtonStatus("add vote");
             }
           }}
