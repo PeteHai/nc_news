@@ -51,9 +51,9 @@ const Comments = ({ commentButtonStatus, article_id }) => {
           <button
             onClick={() => {
               if (postButtonStatus === "click here to post a comment...") {
-                setPostButtonStatus("click to cancel posting your comment");
+                setPostButtonStatus("click to minimize posting your comment");
               } else if (
-                postButtonStatus === "click to cancel posting your comment"
+                postButtonStatus === "click to minimize posting your comment"
               ) {
                 setPostButtonStatus("click here to post a comment...");
               }
