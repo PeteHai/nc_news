@@ -1,4 +1,4 @@
-import { useContext, React, useState, useEffect } from "react";
+import { useContext, React, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { postCommentOnArticle } from "../components/utils/api.js";
 
@@ -9,7 +9,7 @@ const PostComment = ({
   setCommentsState,
 }) => {
   //useContext so we can get user access
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   //comment body state
   const [newCommentBody, setNewCommentBody] = useState("");
@@ -52,7 +52,7 @@ const PostComment = ({
           <p>you are posting as {currentUser.username}</p>
           <form onSubmit={handleSubmit}>
             <fieldset>
-              <label for="postCommentBody">write your comment here:</label>
+              <label htmlFor="postCommentBody">write your comment here:</label>
               <input
                 type="text"
                 name="postCommentBody"

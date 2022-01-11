@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 export default function User() {
   //context
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { setCurrentUser } = useContext(UserContext);
 
   //default user object
   const defaultUserObject = {

@@ -12,9 +12,13 @@ const ArticlesByTopic = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
+    let mounted = true;
+
     getArticlesByTopic(sortBy, orderBy, topic).then(
       (articlesByTopicFromApi) => {
-        setArticlesByTopic(articlesByTopicFromApi);
+        if (mounted) {
+          setArticlesByTopic(articlesByTopicFromApi);
+        }
       }
     );
 
@@ -33,6 +37,10 @@ const ArticlesByTopic = () => {
     }
 
     navigate({ search: params.toString() });
+
+    return function cleanup() {
+      mounted = false;
+    };
   }, [sortBy, orderBy, topic, navigate]);
 
   //another useEffect - triggered by sortByQuery changing

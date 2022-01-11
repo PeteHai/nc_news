@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import CommentVoter from "./CommentVoter.jsx";
 import DeleteComment from "./DeleteComment.jsx";
 import PostComment from "./PostComment.jsx";
@@ -8,15 +7,21 @@ import { getArticleComments } from "./utils/api.js";
 const Comments = ({ commentButtonStatus, article_id }) => {
   const [commentsState, setCommentsState] = useState([]);
 
-  useEffect(() => {
-    getArticleComments(article_id).then((commentsFromApi) => {
-      setCommentsState(commentsFromApi);
-    });
-  }, []);
-
   const [postButtonStatus, setPostButtonStatus] = useState(
     "click here to post a comment..."
   );
+
+  useEffect(() => {
+    let mounted = true;
+    getArticleComments(article_id).then((commentsFromApi) => {
+      if (mounted) {
+        setCommentsState(commentsFromApi);
+      }
+    });
+    return function cleanup() {
+      mounted = false;
+    };
+  }, [article_id]);
 
   if (commentButtonStatus === "click to see all comments") {
     return null;
@@ -26,7 +31,7 @@ const Comments = ({ commentButtonStatus, article_id }) => {
         <div>
           {commentsState.map((comment) => {
             return (
-              <div className="commentCard">
+              <div className="commentCard" key={comment.comment_id}>
                 <p>comment_id: {comment.comment_id}</p>
                 <p>author: {comment.author}</p>
                 <p>{comment.body}</p>

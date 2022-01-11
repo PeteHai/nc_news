@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 //dev note - backend does not have a patch to the comments API yet, therefore these vote changes will disappear on refresh
 

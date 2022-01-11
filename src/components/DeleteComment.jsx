@@ -1,4 +1,4 @@
-import { useContext, React, useState, useEffect } from "react";
+import { useContext, React, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { deleteCommentFromArticle } from "./utils/api.js";
 
@@ -8,7 +8,7 @@ const DeleteComment = ({
   commentsState,
   setCommentsState,
 }) => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   const [deleteButtonStatus, setDeleteButtonStatus] =
     useState("delete comment");

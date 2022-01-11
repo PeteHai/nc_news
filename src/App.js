@@ -5,7 +5,7 @@ import TopicSelector from "./components/TopicSelector";
 import ArticlesByTopic from "./components/ArticlesByTopic";
 import SingleArticle from "./components/SingleArticle";
 import User from "./components/User";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { UserContext } from "./context/UserContext.js";
 
 function App() {
