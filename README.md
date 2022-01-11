@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+##Hosted link
+https://ph-nc-news-frontend-project.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
