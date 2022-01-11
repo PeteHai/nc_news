@@ -2,9 +2,15 @@ import { useContext, React, useState, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import { postCommentOnArticle } from "../components/utils/api.js";
 
-const PostComment = ({ postButtonStatus, article_id }) => {
+const PostComment = ({
+  postButtonStatus,
+  article_id,
+  commentsState,
+  setCommentsState,
+}) => {
   //useContext so we can get user access
   const { currentUser, setCurrentUser } = useContext(UserContext);
+
   //comment body state
   const [newCommentBody, setNewCommentBody] = useState("");
 
@@ -20,8 +26,14 @@ const PostComment = ({ postButtonStatus, article_id }) => {
     };
 
     if (newCommentBody.length > 0) {
-      postCommentOnArticle(article_id, commentToPost);
-      setNewCommentBody("");
+      postCommentOnArticle(article_id, commentToPost).then(
+        (newlyCreatedComment) => {
+          // console.log(newlyCreatedComment);
+          commentsState.push(newlyCreatedComment);
+          setNewCommentBody("");
+          setCommentsState(commentsState);
+        }
+      );
     } else {
       console.log("error - you cannot post a blank comment");
     }
@@ -38,7 +50,6 @@ const PostComment = ({ postButtonStatus, article_id }) => {
       return (
         <div className="postCommentsForm">
           <p>you are posting as {currentUser.username}</p>
-          <h2> Post Comment Form </h2>
           <form onSubmit={handleSubmit}>
             <fieldset>
               <label for="postCommentBody">write your comment here:</label>

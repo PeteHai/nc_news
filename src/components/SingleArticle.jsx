@@ -11,9 +11,9 @@ const SingleArticle = () => {
   const [commentButtonStatus, setCommentButtonStatus] = useState(
     "click to see all comments"
   );
-  const [postButtonStatus, setPostButtonStatus] = useState(
-    "click here to post a comment..."
-  );
+  // const [postButtonStatus, setPostButtonStatus] = useState(
+  //   "click here to post a comment..."
+  // );
 
   const { article_id } = useParams();
 
@@ -82,7 +82,7 @@ const SingleArticle = () => {
         commentButtonStatus={commentButtonStatus}
         article_id={article_id}
       />
-      <div className="postCommentsContainer">
+      {/* <div className="postCommentsContainer">
         <button
           onClick={() => {
             if (postButtonStatus === "click here to post a comment...") {
@@ -98,11 +98,10 @@ const SingleArticle = () => {
         </button>
         <PostComment
           //pass down post comment props
-
           postButtonStatus={postButtonStatus}
           article_id={article_id}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
