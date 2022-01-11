@@ -85,6 +85,7 @@ const ArticlesByTopic = () => {
             <Link
               className="linkToArticle"
               to={`/articles/${article.topic}/${article.article_id}`}
+              key={article.article_id}
             >
               <li className="singleArticleOnHome" key={article.article_id}>
                 <h3>title: {article.title}</h3>
