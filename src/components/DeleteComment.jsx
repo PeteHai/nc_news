@@ -2,7 +2,12 @@ import { useContext, React, useState, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import { deleteCommentFromArticle } from "./utils/api.js";
 
-const DeleteComment = ({ commentUsername, comment_id }) => {
+const DeleteComment = ({
+  commentUsername,
+  comment_id,
+  commentsState,
+  setCommentsState,
+}) => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const [deleteButtonStatus, setDeleteButtonStatus] =
@@ -11,11 +16,12 @@ const DeleteComment = ({ commentUsername, comment_id }) => {
   const [confirmStatus, setConfirmStatus] = useState("");
 
   const handleConfirmedDelete = () => {
-    //confirmation message - where
-    //delete request
-    //re-render
-    //do we need to reset delete ButtonStatus etc
-    deleteCommentFromArticle(comment_id);
+    deleteCommentFromArticle(comment_id).then(() => {
+      const filteredOutDeletedComment = commentsState.filter(
+        (comment) => comment.comment_id !== comment_id
+      );
+      setCommentsState(filteredOutDeletedComment);
+    });
     setDeleteButtonStatus("delete comment");
     return null;
   };

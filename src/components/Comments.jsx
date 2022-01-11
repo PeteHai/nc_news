@@ -35,6 +35,8 @@ const Comments = ({ commentButtonStatus, article_id }) => {
                 <DeleteComment
                   commentUsername={comment.author}
                   comment_id={comment.comment_id}
+                  setCommentsState={setCommentsState}
+                  commentsState={commentsState}
                 />
               </div>
             );
