@@ -65,7 +65,7 @@ const DeleteComment = ({
   if (currentUser.username === commentUsername) {
     if (deleteButtonStatus !== "") {
       return (
-        <div>
+        <div className="deleteComment">
           <button
             onClick={() => {
               handleClick();
@@ -78,7 +78,7 @@ const DeleteComment = ({
         </div>
       );
     } else {
-      return <div>{confirmStatus}</div>;
+      return <div className="deleteComment">{confirmStatus}</div>;
     }
   } else {
     return null;

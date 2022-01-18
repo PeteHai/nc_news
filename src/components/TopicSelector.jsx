@@ -13,7 +13,7 @@ const TopicSelector = () => {
 
   return (
     <main className="nav">
-      <h2 className="navTitle"> Topics </h2>
+      <h2 className="navTitle"> Go to topic... </h2>
       <br></br>
       <div id="topics" className="topics">
         <Link className="topicLink" key="allTopics" to="/articles">

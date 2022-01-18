@@ -121,7 +121,7 @@ a {
 
 .topicLink:hover {
   border-radius: 3px;
-  background-color: darkgray;
+  background-color: rgb(108, 108, 228);
   color: rgb(20, 10, 6);
   padding: 2px;
 }
@@ -197,56 +197,161 @@ a {
   order: 7;
 }
 
-.articleInFull {
-  background-color: rgb(224, 237, 245);
-  margin-top: 2vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  margin-bottom: 3vh;
-  border-radius: 2%;
-  display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-areas:
-    "a a"
-    "b c"
-    "d c"
-    "e f"
-    "g h"
-    "i j";
+.articleContainer {
+  grid-area: main;
+  padding-left: 5vw;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  max-width: 70vw;
 }
 
+.articleInFull {
+  background-color: white;
+  border-radius: 3px;
+  border: solid black 1px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: 0px;
+  justify-content: space-between;
+}
 .articleHeader {
-  border: dashed black 1px;
-  grid-area: a;
+  padding-left: 15px;
+  order: 1;
+  margin: 0px;
+}
+.lineBreak2 {
+  flex-basis: 100%;
+  height: 0;
+  order: 2;
+  margin: 0px;
+  border-bottom: solid rgb(108, 108, 228);
 }
 
 .articleBody {
-  border: dashed black 1px;
-  grid-area: c;
+  margin: 0px;
+  padding-left: 15px;
   overflow: scroll;
+  text-align: justify;
+  order: 3;
+}
+.lineBreak3 {
+  flex-basis: 100%;
+  height: 0;
+  order: 4;
+  margin: 0px;
+  border-bottom: solid rgb(207, 204, 204) 1px;
 }
 .articleAuthorBox {
-  border: dashed black 1px;
-  grid-area: b;
+  padding-left: 15px;
+  order: 5;
+  margin: 0px;
+  color: rgb(92, 91, 91);
 }
+
 .articleVotingBox {
-  border: dashed black 1px;
-  grid-area: d;
+  padding-right: 15px;
+  order: 6;
+  margin: 0px;
+  justify-self: right;
+  color: rgb(92, 91, 91);
+}
+.likeEmoji {
+  width: 15px;
+}
+.lineBreak4 {
+  flex-basis: 100%;
+  height: 0;
+  order: 7;
+  margin: 0px;
+  border-bottom: solid rgb(207, 204, 204) 1px;
 }
 .articleCommentsBox {
-  border: dashed black 1px;
-  grid-area: f;
+  padding-left: 15px;
+  order: 8;
+  margin: 0px;
+  color: rgb(92, 91, 91);
+  margin-bottom: 15px;
 }
 
 .revealComments {
-  border: solid 1px;
-  grid-area: h;
+  padding-left: 15px;
+  order: 9;
+  margin: 0px;
 }
 
 .postCommentsContainer {
-  border: solid 1px;
-  grid-area: j;
+  order: 10;
+  margin: 0px;
 }
 .commentCard {
-  border: dashed 1px;
+  border: solid 1px;
+  border-radius: 3px;
+  background-color: rgb(253, 238, 212);
+  order: 11;
+  margin: 3px;
+  margin-right: 15px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.commentBody {
+  order: 1;
+}
+.Lbreak1 {
+  flex-basis: 100%;
+  height: 0;
+  order: 2;
+  margin: 0px;
+  border-bottom: solid rgb(207, 204, 204) 1px;
+}
+.commentCreated {
+  order: 3;
+  margin: 0px;
+  color: rgb(92, 91, 91);
+  padding-top: 5px;
+}
+.Lbreak2 {
+  flex-basis: 100%;
+  height: 0;
+  order: 4;
+  margin: 0px;
+}
+.commentAuthor {
+  order: 5;
+  margin: 0px;
+  color: rgb(92, 91, 91);
+  padding-top: 10px;
+}
+.commentVoter {
+  order: 6;
+  margin: 0px;
+  color: rgb(92, 91, 91);
+  justify-self: right;
+  padding-right: 15px;
+}
+.Lbreak3 {
+  flex-basis: 100%;
+  height: 0;
+  order: 7;
+  margin: 0px;
+}
+
+.deleteComment {
+  margin: 0px;
+  color: rgb(92, 91, 91);
+  order: 8;
+  justify-self: left;
+  color: red;
+}
+.postCommentsForm {
+  align-items: center;
 }

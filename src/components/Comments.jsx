@@ -32,12 +32,19 @@ const Comments = ({ commentButtonStatus, article_id }) => {
           {commentsState.map((comment) => {
             return (
               <div className="commentCard" key={comment.comment_id}>
-                <p>comment_id: {comment.comment_id}</p>
-                <p>author: {comment.author}</p>
-                <p>{comment.body}</p>
-                <p>comment created at: {comment.created_at}</p>
+                <p className="commentBody">{comment.body}</p>
+                <p className="Lbreak1" />
+                <p className="commentCreated">
+                  comment posted at: {comment.created_at}
+                </p>
+                <p className="Lbreak2" />
+                <p className="commentAuthor">by author: {comment.author}</p>
                 <CommentVoter votes={comment.votes} />
+
+                <p className="Lbreak3" />
+
                 <DeleteComment
+                  className="deleteComment"
                   commentUsername={comment.author}
                   comment_id={comment.comment_id}
                   setCommentsState={setCommentsState}

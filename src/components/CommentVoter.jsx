@@ -21,6 +21,7 @@ const CommentVoter = ({ votes }) => {
         }}
       >
         {voteButtonStatus}
+        <img className="likeEmoji" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/313/thumbs-up_1f44d.png" alt=""></img>
       </button>
     </div>
   );

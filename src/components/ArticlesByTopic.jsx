@@ -70,7 +70,6 @@ const ArticlesByTopic = () => {
               { label: "votes", value: "votes" },
             ]}
             onChange={(event) => {
-              //trigger fn that sets URL and setSortBy
               setSortBy(event.value);
             }}
           ></Select>
@@ -104,7 +103,12 @@ const ArticlesByTopic = () => {
                 <p className="SAAuthor">author: {article.author} </p>
                 <div className="lineBreak"></div>
                 <p className="SATopic">topic: {article.topic} </p>
-                <p className="SACreated">created_at: {article.created_at} </p>
+                <p className="SACreated">
+                  posted at:{" "}
+                  {article.created_at.slice(11, -8) +
+                    ",   " +
+                    article.created_at.slice(0, 10)}{" "}
+                </p>
                 <p className="SAVotes">votes : {article.votes} </p>
                 <p className="SAComments">comments: {article.comment_count} </p>
               </li>
