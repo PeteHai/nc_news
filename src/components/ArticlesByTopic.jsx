@@ -56,7 +56,7 @@ const ArticlesByTopic = () => {
         {" "}
         articles{isThereATopic(topic)}{" "}
       </h2>
-      <div className="sortBy">
+      <div className="sortByForm">
         <form className="articleSortingForm">
           <Select
             className="sortBy"
@@ -100,12 +100,13 @@ const ArticlesByTopic = () => {
               key={article.article_id}
             >
               <li className="singleArticleOnHome" key={article.article_id}>
-                <h3>title: {article.title}</h3>
-                <p>topic: {article.topic} </p>
-                <p>author: {article.author} </p>
-                <p>created_at: {article.created_at} </p>
-                <p>votes: {article.votes} </p>
-                <p>comments: {article.comment_count} </p>
+                <h3 className="SATitle">title: {article.title}</h3>
+                <p className="SAAuthor">author: {article.author} </p>
+                <div className="lineBreak"></div>
+                <p className="SATopic">topic: {article.topic} </p>
+                <p className="SACreated">created_at: {article.created_at} </p>
+                <p className="SAVotes">votes : {article.votes} </p>
+                <p className="SAComments">comments: {article.comment_count} </p>
               </li>
             </Link>
           );

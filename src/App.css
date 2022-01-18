@@ -10,11 +10,11 @@ a {
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 25% 25% 25% 25%;
   grid-template-areas:
-    "header header login"
-    "nav nav nav"
-    "main main main";
+    "header header login login "
+    "nav nav nav  nav"
+    "main main main main";
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(211, 215, 243);
 }
@@ -35,7 +35,7 @@ a {
   vertical-align: middle;
   max-height: 12vh;
   min-height: fit-content;
-  padding-right: 5vw;
+  padding-right: 15vw;
   border-bottom: solid rgb(108, 108, 228) 15px;
 }
 
@@ -48,7 +48,7 @@ a {
   grid-area: login;
   max-height: 12vh;
   min-height: fit-content;
-  padding-right: 5vw;
+  padding-right: 15vw;
   justify-content: right;
   background-color: white;
   display: grid;
@@ -139,24 +139,62 @@ a {
   border-bottom: solid black 2px;
   font-size: 13px;
 }
+
+.articleSortingForm {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3px;
+}
+.linkToArticle {
+}
 .singleArticleOnHome {
   border: solid black 1px;
   background-color: whitesmoke;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 10px;
-  padding: 5px;
-  border-radius: 10px;
-  max-width: 100%;
-  max-height: 15%;
-  min-width: 360px;
-  display: grid;
+  text-align: left;
+  justify-content: space-between;
+  padding-left: 3vw;
+  padding-right: 3vw;
 }
 
 .singleArticleOnHome:hover {
-  background-color: blanchedalmond;
+  background-color: rgb(240, 214, 167);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+.lineBreak {
+  flex-basis: 100%;
+  height: 0;
+  order: 3;
+  border-bottom: solid rgb(108, 108, 228);
+  border-radius: 5px;
+}
+
+.SATitle {
+  order: 1;
+  flex-grow: 1;
+}
+.SAAuthor {
+  text-align: left;
+  order: 2;
+}
+.SATopic {
+  order: 4;
+}
+.SACreated {
+  order: 5;
+}
+.SAComments {
+  order: 6;
+}
+.SAVotes {
+  order: 7;
 }
 
 .articleInFull {
