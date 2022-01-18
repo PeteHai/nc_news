@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getArticlesByTopic } from "./utils/api";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
+import Select from "react-select";
 
 const ArticlesByTopic = () => {
   const [articlesByTopic, setArticlesByTopic] = useState([]);
@@ -25,9 +26,9 @@ const ArticlesByTopic = () => {
     const params = new URLSearchParams();
 
     if (sortBy !== undefined) {
-      params.append("sortBy", sortBy);
+      params.append("sort_by", sortBy);
     } else {
-      params.delete("sortBy");
+      params.delete("sort_by");
     }
 
     if (orderBy !== undefined) {
@@ -56,34 +57,37 @@ const ArticlesByTopic = () => {
         articles{isThereATopic(topic)}{" "}
       </h2>
       <div className="sortBy">
-        sortBy bar
         <form className="articleSortingForm">
-          <select
+          <Select
             className="sortBy"
             name="sortBy"
             id="sortBy"
-            multiple="multiple"
-            onChange={(value) => {
+            isSearchable="false"
+            placeholder="sort articles by ..."
+            options={[
+              { label: "date created", value: "created_at" },
+              { label: "comment count", value: "comment_count" },
+              { label: "votes", value: "votes" },
+            ]}
+            onChange={(event) => {
               //trigger fn that sets URL and setSortBy
-              setSortBy(value.target.value);
+              setSortBy(event.value);
             }}
-          >
-            <option value="created_at">date created</option>
-            <option value="comment_count">comment count</option>
-            <option value="votes">votes</option>
-          </select>
-          <select
+          ></Select>
+          <Select
             className="sortBy"
             name="orderby"
             id="orderby"
-            multiple="multiple"
-            onChange={(value) => {
-              setOrderby(value.target.value);
+            isSearchable="false"
+            placeholder="order artciles by ..."
+            options={[
+              { label: "ascending", value: "asc" },
+              { label: "descending", value: "desc" },
+            ]}
+            onChange={(event) => {
+              setOrderby(event.value);
             }}
-          >
-            <option value="asc">ASC</option>
-            <option value="desc">DESC</option>
-          </select>
+          ></Select>
         </form>
       </div>
 

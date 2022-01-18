@@ -9,92 +9,139 @@ a {
   justify-content: center;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  grid-template-columns: 30% 30% 30%;
   grid-template-areas:
-    "header"
-    "nav"
-    "login"
-    "main";
+    "header header login"
+    "nav nav nav"
+    "main main main";
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(211, 215, 243);
 }
 
 .header {
+  padding-left: 5vw;
   grid-area: header;
+  text-align: left;
+  background-color: white;
+  max-height: 12vh;
+  min-height: fit-content;
+  border-bottom: solid rgb(108, 108, 228) 15px;
+}
+.loginContainer {
+  grid-area: login;
+  background-color: white;
   justify-content: center;
-  background-color: lavender;
+  vertical-align: middle;
+  max-height: 12vh;
+  min-height: fit-content;
+  padding-right: 5vw;
+  border-bottom: solid rgb(108, 108, 228) 15px;
 }
 
+.userLogin {
+  padding: 10px;
+  margin: 3vh;
+}
+
+.logoutContainer {
+  grid-area: login;
+  max-height: 12vh;
+  min-height: fit-content;
+  padding-right: 5vw;
+  justify-content: right;
+  background-color: white;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    "avatar welcome"
+    "username signout";
+  border-bottom: solid rgb(108, 108, 228) 15px;
+}
+.avatar {
+  padding: 5px;
+  margin: 5px;
+  max-height: 50px;
+  border: black 2px solid;
+  box-shadow: 3px 3px 5px 6px rgb(46, 42, 42);
+  border-radius: 50%;
+  grid-area: avatar;
+  justify-self: center;
+}
+
+.userWelcome {
+  grid-area: welcome;
+  font-family: cursive;
+  font-size: 30px;
+  padding: 15px;
+  margin-top: 5px;
+}
+.UserUsername {
+  grid-area: username;
+  padding: 5px;
+  font-size: 12px;
+}
+.userLogout {
+  grid-area: signout;
+}
 .nav {
   grid-area: nav;
-  overflow: hidden;
-  background-color: rgb(131, 131, 158);
+  padding-left: 5vw;
+  padding-bottom: 5px;
+  border-width: 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  max-width: 70vw;
+}
+.navTitle {
+  text-indent: 15px;
+  background-color: rgb(240, 214, 167);
+  border-radius: 3px;
+  border-bottom: solid black 2px;
+  font-size: 13px;
 }
 
-.topicNavLink:link {
-  border-radius: 10px;
-  background-color: whitesmoke;
-  color: black;
-  padding: 1px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+.topics {
+  max-width: 70vw;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1px;
+  font-size: 16px;
+}
+.topicLink:link {
+  background-color: white;
+  border: solid 1px;
+  border-radius: 3px;
+  text-indent: 15px;
 }
 
-.topicNavLink:hover {
-  border-radius: 10px;
+.topicLink:hover {
+  border-radius: 3px;
   background-color: darkgray;
   color: rgb(20, 10, 6);
   padding: 2px;
 }
 
-.loginContainer {
-  grid-area: login;
-  padding: 5px;
-  text-align: center;
-  max-height: min-content;
-  background-color: rgb(140, 169, 172);
-  overflow: -moz-hidden-unscrollable;
-  grid-template-areas: "a b c d";
-}
-.userLogin {
-  grid-area: d;
-}
-
-.logoutContainer {
-  grid-area: login;
-  background-color: rgb(140, 169, 172);
-  max-height: min-content;
-  grid-template-areas: "a b c d";
-  overflow: scroll;
-}
-
-.avatar {
-  padding: 5px;
-  max-height: 50px;
-  border: black 2px solid;
-  box-shadow: 3px 3px 5px 6px rgb(46, 42, 42);
-  border-radius: 50%;
-  grid-area: a;
-}
-
-.userWelcome {
-  grid-area: b;
-}
-.UserUsername {
-  grid-area: c;
-}
-.userLogout {
-  grid-area: d;
-}
-
 .articlesByTopic {
-  background-color: rgb(233, 246, 248);
+  grid-area: main;
+  max-width: 70vw;
+  padding-left: 5vw;
 }
 .articlesByTopicHeader {
-  background-color: rgb(140, 169, 172);
+  text-align: left;
+  text-indent: 15px;
+  background-color: rgb(240, 214, 167);
+  border-radius: 3px;
+  border-bottom: solid black 2px;
+  font-size: 13px;
 }
 .singleArticleOnHome {
   border: solid black 1px;
   background-color: whitesmoke;
-  grid-area: main;
   flex-wrap: wrap;
   justify-content: center;
   margin: 10px;

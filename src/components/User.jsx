@@ -50,7 +50,7 @@ export default function User() {
               setCurrentUser("");
             }}
           >
-            Sign Out from username: {defaultUser[0].username}{" "}
+            Sign Out from "{defaultUser[0].username}"{" "}
           </button>
         </div>
       </div>

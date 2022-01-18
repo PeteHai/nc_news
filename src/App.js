@@ -16,8 +16,8 @@ function App() {
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
       <div className="App">
         <Header />
-        <TopicSelector />
         <User />
+        <TopicSelector />
         <Routes>
           <Route path="/" element={<ArticlesByTopic />} />
           <Route path="/articles/" element={<ArticlesByTopic />} />

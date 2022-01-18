@@ -13,15 +13,16 @@ const TopicSelector = () => {
 
   return (
     <main className="nav">
-      <h2> Topics </h2>
+      <h2 className="navTitle"> Topics </h2>
+      <br></br>
       <div id="topics" className="topics">
-        <Link className="topicNavLink" key="allTopics" to="/articles">
+        <Link className="topicLink" key="allTopics" to="/articles">
           all topics
         </Link>
         {topics.map((topic) => {
           return (
             <Link
-              className="topicNavLink"
+              className="topicLink"
               key={topic.slug}
               to={`/articles/${topic.slug}`}
             >
